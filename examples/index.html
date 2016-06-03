@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>map-server</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+  <div style="height:50px;margin-top:2px" >
+      <button class="btn btn-default" type="submit" id="provider" onclick="onProviderClick(event)" >GoogleProvider_AERIAL</button>
+  </div>
+  <div class="input-group TextInput">
+    <span class="input-group-btn">
+           <button  class="btn btn-default" type="button" onclick="handleClick(event)" >查询</button>
+     </span>
+    <input type="text" id="inputText" value="121,23,5" class="form-control" placeholder="lon,lat,zoom" />
+  </div>
+  <div>
+    <span id="message"></span>
+  </div>
+  <div>
+    <img id="tile" style="" />
+  </div>
+</body>
+
+<script src="js/map-server.js"></script>
+<script>
+      var providers = ["GoogleProvider_AERIAL","GoogleProvider_ROAD","GoogleProvider_HYBRID"]
+      var selectedIndex = 0;
+      server = new MapServer("GoogleProvider_AERIAL");
+      function onProviderClick(event){
+           selectedIndex++;
+           if(selectedIndex>2){
+             selectedIndex = 0
+           }
+           var provider = providers[selectedIndex];
+           server = new MapServer(provider);
+           document.getElementById("provider").innerText = provider;
+      }
+      function handleClick(event){
+        var val = document.getElementById("inputText").value;
+        var vals = val.split(",")
+        var msg = providers[selectedIndex] +"\n";
+        if(vals.length>1){
+          
+          var lon = vals[0];
+          var lat = vals[1];
+          if(vals.length>2){
+            var zoom = vals[2];
+             msg += server.getCoordinate(lon,lat,zoom)+"\n";
+             var img = server.getTileUrls(lon,lat,zoom);
+             msg += img+"\n"
+             document.getElementById("tile").src = img;
+          }else{
+             for (var index = 0; index < 27; index++) {
+              msg += server.getCoordinate(lon,lat,index)+"\n";
+            }
+          }
+        }
+        document.getElementById("message").innerText = msg
+      }
+
+</script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+</html>

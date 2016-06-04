@@ -25,7 +25,7 @@ export class Coordinate {
     /**
      * 将当前坐标缩放至 destination 级别，返回缩放后的对象副本。该方法不修改原始对象。
      * @param	destination	缩放后的缩放级别
-     * @return			缩放后对应的坐标（行、列、缩放级别）
+     * @return	缩放后对应的坐标（行、列、缩放级别）
      */
     zoomTo(destination: number): Coordinate {
         return new Coordinate(this.row * Math.pow(2, destination - this.zoom), this.column * Math.pow(2, destination - this.zoom), destination);
@@ -34,7 +34,7 @@ export class Coordinate {
     /**
      * 对当前坐标缩放 distance 级，返回缩放后对象副本。该方法不修改原始对象。
      * @param	distance	要进行缩放的等级(正数为放大，负数为缩小)
-     * @return			缩放后对应的坐标（行、列、缩放级别）
+     * @return	缩放后对应的坐标（行、列、缩放级别）
      */
     zoomBy(distance: number): Coordinate {
         return new Coordinate(this.row * Math.pow(2, distance), this.column * Math.pow(2, distance), this.zoom + distance);
@@ -111,6 +111,6 @@ export class Coordinate {
      * @return	坐标的字符串表示形式，格式为：(row, column @ zoom)
      */
     toString(): string {
-        return '(' + this.row + ',' + this.column + ' @' + this.zoom + ')';
+        return '(' + this.column + ',' + this.row + ' @' + this.zoom + ')';
     }
 }

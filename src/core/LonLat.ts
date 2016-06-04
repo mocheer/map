@@ -1,23 +1,12 @@
 export class LonLat
 {
-    lat:number; /**纬度，以度为单位表示。范围为-90 ~ 90，取决于具体的数据源（墨卡托投影只支持到±84度）*/
     lon:number; /**经度，以度为单位表示。范围通常为-180 ~ 180，超出范围的将被映射到此范围内*/
+    lat:number; /**纬度，以度为单位表示。范围为-90 ~ 90，取决于具体的数据源（墨卡托投影只支持到±84度）*/
+    
     static  MAX_LAT:number = 84;
     static  MIN_LAT:number = -84;
     static  MAX_LON:number = 180;
     static  MIN_LON:number = -180;
-    /**
-     * 从字符串解析和生成 Location 空间坐标对象。
-     * @param	str	待解析的空间信息字符串，例如：119.3, 25.1
-     * @param	lonlat	若格式为“经度,纬度”，则为true；若为“纬度, 经度”，则为false。
-     * @return		解析所得的空间坐标
-     */
-    static fromString(str:string, lonlat:Boolean=true):LonLat
-    {
-        var parts:Array<string> = str.split(/\s*,\s*/, 2);
-        if (!lonlat) parts = parts.reverse();
-        return new LonLat(parseFloat(parts[0]), parseFloat(parts[1]));
-    }
     /**
      * 构造函数
      * @param	lon	经度，以度表示
@@ -28,6 +17,19 @@ export class LonLat
         this.lon = lon;
         this.lat = lat;
     }
+     /**
+     * 从字符串解析和生成 LonLat 空间坐标对象。
+     * @param	str	待解析的空间信息字符串，例如：119.3, 25.1
+     * @param	lonlat	若格式为“经度,纬度”，则为true；若为“纬度, 经度”，则为false。
+     * @return	解析所得的空间坐标
+     */
+    static fromString(str:string, lonlat:Boolean=true):LonLat
+    {
+        var parts:Array<string> = str.split(/\s*,\s*/, 2);
+        if (!lonlat) parts = parts.reverse();
+        return new LonLat(parseFloat(parts[0]), parseFloat(parts[1]));
+    }
+    
     /**
      * 将当前空间坐标对象与loc对象比较是否相等。
      * @param	loc	与之进行比较的空间坐标对象

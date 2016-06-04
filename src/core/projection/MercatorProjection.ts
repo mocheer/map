@@ -1,7 +1,7 @@
 import {IProjection} from './IProjection';
 import {LonLat} from '../LonLat';
 import {Coordinate} from '../Coordinate';
-import {Transformation} from '../Transformation';
+import {Transformation} from '../math/Transformation';
 /**
  * 墨卡托投影
  */

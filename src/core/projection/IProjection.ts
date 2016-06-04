@@ -12,13 +12,13 @@ export interface IProjection
      * @param	point	待进行投影转换的空间坐标
      * @return	 经过投影和矩阵转换后的投影坐标
      */
-    project(point:number[]):number[];
+    project(point:any[]):any[];
     /**
      * 根据投影坐标，计算和返回对应的空间坐标
      * @param	point	投影坐标
      * @return		投影坐标对应的空间坐标
      */
-    unproject(point:number[]):number[];
+    unproject(point:any[]):any[];
 
     /**
      * 返回对空间坐标（经纬度坐标）投影和转换后的投影坐标（瓦片坐标）.

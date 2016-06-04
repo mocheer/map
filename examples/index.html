@@ -14,7 +14,7 @@
     <span class="input-group-btn">
            <button  class="btn btn-default" type="button" onclick="handleClick(event)" >查询</button>
      </span>
-    <input type="text" id="inputText" value="121,23,5" class="form-control" placeholder="lon,lat,zoom" />
+    <input type="text" id="inputText" value="119.3,26.08,5" class="form-control" placeholder="lon,lat,zoom" />
   </div>
   <div>
     <span id="message"></span>
@@ -29,6 +29,7 @@
       var providers = ["GoogleProvider_AERIAL","GoogleProvider_ROAD","GoogleProvider_HYBRID"]
       var selectedIndex = 0;
       server = new MapServer("GoogleProvider_AERIAL");
+      //
       function onProviderClick(event){
            selectedIndex++;
            if(selectedIndex>2){
@@ -38,30 +39,21 @@
            server = new MapServer(provider);
            document.getElementById("provider").innerText = provider;
       }
+      //
       function handleClick(event){
         var val = document.getElementById("inputText").value;
         var vals = val.split(",")
-        var msg = providers[selectedIndex] +"\n";
+        var tile;
         if(vals.length>1){
-          
-          var lon = vals[0];
-          var lat = vals[1];
-          if(vals.length>2){
-            var zoom = vals[2];
-             msg += server.getCoordinate(lon,lat,zoom)+"\n";
-             var img = server.getTileUrls(lon,lat,zoom);
-             msg += img+"\n"
-             document.getElementById("tile").src = img;
-          }else{
-             for (var index = 0; index < 27; index++) {
-              msg += server.getCoordinate(lon,lat,index)+"\n";
-            }
-          }
+          var lon = parseInt(vals[0]);
+          var lat = parseInt(vals[1]);
+          var zoom = vals.length>2?vals[2]:0;
+          tile = server.getMapTile(lon,lat,zoom);
+          document.getElementById("tile").src = tile.urls[0];
+          document.getElementById("message").innerText = tile.toString();
         }
-        document.getElementById("message").innerText = msg
       }
-
 </script>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </html>

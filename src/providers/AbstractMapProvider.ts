@@ -71,7 +71,7 @@ export class AbstractMapProvider  {
 	/**
 	 * 返回投影坐标对应的原始空间坐标信息
 	 * @param	coordinate	投影坐标
-	 * @return			投影坐标对应的空间坐标
+	 * @return	投影坐标对应的空间坐标
 	 */
 	coordinateLocation(coordinate: Coordinate): LonLat {
 		return this.projection.coordinateLocation(coordinate);

@@ -9,8 +9,10 @@ export class MapTile {
     zoom:number;
     provider:IMapProvider;
     coordinate:Coordinate;
+    realMaxCoordinate:Coordinate;
     offsetX:number;
     offsetY:number;
+    scaleValue:number;
     urls:any;
     /**
      * @provider 地图图源
@@ -28,9 +30,10 @@ export class MapTile {
         //  
         var maxCoordinate = this.coordinate.zoomBy(-destination);//放大到最大级别的瓦片
         var scale = Math.pow(2, destination);//缩放因子
-        var scaleValue = provider.tileWidth*scale;
-        this.offsetX = (realMaxCoordinate.column-maxCoordinate.column)*scaleValue;
-        this.offsetY = (realMaxCoordinate.row-maxCoordinate.row)*scaleValue;
+        this.scaleValue = provider.tileWidth*scale;
+        this.offsetX = (realMaxCoordinate.column-maxCoordinate.column)*this.scaleValue;
+        this.offsetY = (realMaxCoordinate.row-maxCoordinate.row)*this.scaleValue;
+        this.realMaxCoordinate = realMaxCoordinate;
        
     }
     /**
@@ -42,6 +45,7 @@ export class MapTile {
         "zoom:"+this.zoom.toString()+"\n" +
         "offset:"+this.offsetX+","+this.offsetY+"\n" +
         "coordinate:"+ this.coordinate.toString()+"\n" +
+        "scaleValue:"+ this.scaleValue.toString()+"\n" +
         "urls:"+this.urls.toString()+"\n";
         return str;
     }

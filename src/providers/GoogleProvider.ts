@@ -41,7 +41,7 @@ export class GoogleProvider extends AbstractMapProvider implements IMapProvider 
 	 * @return	谷歌数据源字符串描述信息
 	 */
 	toString(): string {
-		return "GOOGLE_" + this.type;
+		return "GoogleProvider_" + this.type;
 	}
 }
 

@@ -1,14 +1,17 @@
 import {MapProvider} from "./MapProvider";
 export class MapServer {
+    provider:string;
     mapProvider: MapProvider;
-    
+   
     constructor(provider) {
+        this.provider = provider;
         this.mapProvider = new MapProvider(provider);
     }
     
     getMapTile(lon,lat,zoom):any{
        return this.mapProvider.getMapTile(lon,lat,zoom);
     }
+    
 }
 
 // set global

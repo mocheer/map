@@ -11,7 +11,6 @@ export class MapServer {
     getMapTile(lon,lat,zoom):any{
        return this.mapProvider.getMapTile(lon,lat,zoom);
     }
-    
 }
 
 // set global
@@ -29,7 +28,6 @@ export class MapServer {
         }
     })
 );
-
 
 function loadUtility(){
     if (!String.prototype["format"]) {

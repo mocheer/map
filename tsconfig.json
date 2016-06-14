@@ -6,7 +6,7 @@
         "sourceMap": false,
         "watch": true,
         "removeComments": true,
-        // "out":"built/map-server.js"//当module是amd或者system时生效
+        // "out":"built/map.js"//当module是amd或者system时生效
         "outDir": "built" //commonjs
     },
     "exclude": [

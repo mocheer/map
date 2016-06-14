@@ -1,7 +1,7 @@
 var webpack = require('webpack');  
 module.exports = {
     entry: {
-        "map-server": './src/MapServer.ts'
+        "map": './src/MapServer.ts'
     },
     output: {
         path: __dirname,
@@ -17,7 +17,7 @@ module.exports = {
     },
     plugins: [
         // new webpack.optimize.CommonsChunkPlugin('common.js'),
-        // new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}})//相当于webpack -p
+        new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}})//相当于webpack -p
     ]
 }
 

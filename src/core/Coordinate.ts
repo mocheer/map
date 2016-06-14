@@ -108,9 +108,9 @@ export class Coordinate {
 
     /**
      * 返回坐标的字符串表示形式
-     * @return	坐标的字符串表示形式，格式为：(row, column @ zoom)
+     * @return	坐标的字符串表示形式，格式为：column,row,zoom
      */
     toString(): string {
-        return '(' + this.column + ',' + this.row + ' @' + this.zoom + ')';
+        return this.column + ',' + this.row + ',' + this.zoom;
     }
 }

@@ -36,7 +36,13 @@
           tile = server.getMapTile(lon,lat,zoom);
           var useDate = new Date()-date;
           document.getElementById("message").innerText = tile.toString()+"耗时:"+useDate+"ms";
-          document.getElementById("tile").src = tile.getUrls()[0];
+          var urls  = tile.getUrls();
+          if(urls){
+            document.getElementById("tile").src = urls[0];
+          }else{
+            document.getElementById("tile").src = null;
+          }
+          
         }
       }
 </script>

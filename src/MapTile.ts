@@ -47,11 +47,12 @@ export class MapTile {
      */
     toString():string{
         var lonlat = this.lonlat;
-        var point:any[] = [Math.PI * lonlat.lon / 180.0, Math.PI * lonlat.lat / 180.0];
-        var transformXY = this.provider["projection"].project(point);
+        var point:any[] = [Math.PI * lonlat.lon / 180, Math.PI * lonlat.lat / 180];
+        var transformXY = this.provider["projection"]["rawProject"](point)
         var str = "provider:"+this.provider.toString()+"\n" +
         "lonlat:"+lonlat.toString()+"(经纬度-地理坐标)\n" +
-        "transformXY:"+transformXY.toString()+"(投影坐标)\n" +
+        "transformXY:"+transformXY.toString()+"(投影坐标)\n"+
+        "maxCoordinate:"+this.realMaxCoordinate.container().toString()+"(26级瓦片坐标)\n" +
         "coordinate:"+ this.coordinate.toString()+"(瓦片坐标)\n" +
         "scaleValue:"+ this.scaleValue.toString()+"\n" +
         "offset:"+this.offset+"(偏移坐标)\n" +

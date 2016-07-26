@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
-<body>
+<body style="padding-left:5px">
   <div class="input-group TextInput" style="margin-top:5px">
     <span class="input-group-btn">
            <button  class="btn btn-default" type="button" onclick="handleClick(event)" >查询</button>
@@ -29,13 +29,13 @@
         var vals = val.split(",")
         var tile;
         if(vals.length>1){
-          var lon = parseInt(vals[0]);
-          var lat = parseInt(vals[1]);
+          var lon = parseFloat(vals[0]);
+          var lat = parseFloat(vals[1]);
           var zoom = vals.length>2?vals[2]:0;
           var date = new Date();
           tile = server.getMapTile(lon,lat,zoom);
           var useDate = new Date()-date;
-          document.getElementById("message").innerText = tile.toString()+"耗时:"+useDate;
+          document.getElementById("message").innerText = tile.toString()+"耗时:"+useDate+"ms";
           document.getElementById("tile").src = tile.getUrls()[0];
         }
       }

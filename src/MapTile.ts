@@ -46,12 +46,16 @@ export class MapTile {
      * 
      */
     toString():string{
+        var lonlat = this.lonlat;
+        var point:any[] = [Math.PI * lonlat.lon / 180.0, Math.PI * lonlat.lat / 180.0];
+        var transformXY = this.provider["projection"].project(point);
         var str = "provider:"+this.provider.toString()+"\n" +
-        "lonlat:"+this.lonlat.toString()+"\n" +
-        "coordinate:"+ this.coordinate.toString()+"\n" +
+        "lonlat:"+lonlat.toString()+"(经纬度-地理坐标)\n" +
+        "transformXY:"+transformXY.toString()+"(投影坐标)\n" +
+        "coordinate:"+ this.coordinate.toString()+"(瓦片坐标)\n" +
         "scaleValue:"+ this.scaleValue.toString()+"\n" +
-        "offset:"+this.offset+"\n" +
-        "urls:"+this.getUrls()+"\n"
+        "offset:"+this.offset+"(偏移坐标)\n" +
+        "urls:"+this.getUrls()+"(瓦片服务地址)\n"
         return str;
     }
 }

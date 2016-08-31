@@ -22,9 +22,12 @@
 </body>
 <script src="js/map.js"></script>
 <script>
-      server = new MapServer("GoogleProvider_AERIAL");
+      var index = 0
       //
       function handleClick(event){
+        var providers = ["GoogleProvider_AERIAL","TianDiProvider_AERIAL","GaoDeProvider_AERIAL"]
+        var server = new MapServer(providers[index%3]);
+        index++
         var val = document.getElementById("inputText").value;
         var vals = val.split(",")
         var tile;

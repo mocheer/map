@@ -29,15 +29,14 @@ export class GoogleProvider extends AbstractMapProvider implements IMapProvider 
 			return null;
 		}
 		var sourceCoord: Coordinate = this.sourceCoordinate(coord);
-		var server: number = Math.round(Math.random() * 3);//随机镜像服务器编号
-		var s: string = "Galileo".substr(0, Math.floor(Math.random() * 8));
+		var server: number = coord.row%4;//随机镜像服务器编号
+		var s: string = "Galileo".substr(0, Math.floor(Math.random() * 8));//暂时未发现 "&s=" 的意义，url有无此后缀都不影响瓦片地址的访问。
 		var url: any = this.urlTemplate;
 		var result = url.format(server, sourceCoord.column, sourceCoord.row, sourceCoord.zoom, s)
 		return [result];
 	}
 
 	/**
-	 * 谷歌数据源字符串描述信息
 	 * @return	谷歌数据源字符串描述信息
 	 */
 	toString(): string {
@@ -51,7 +50,6 @@ export class GoogleProvider extends AbstractMapProvider implements IMapProvider 
 export class GoogleProvider_AERIAL extends GoogleProvider {
 	type: string = "AERIAL";
 	urlTemplate: string = "http://mt{0}.google.cn/vt/lyrs=y&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}";
-
 	constructor() {
 		super();
 	}
@@ -63,7 +61,6 @@ export class GoogleProvider_AERIAL extends GoogleProvider {
 export class GoogleProvider_HYBRID extends GoogleProvider {
 	type: string = "HYBRID";
 	urlTemplate: string = "http://mt{0}.google.cn/vt/lyrs=p&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}";
-
 	constructor() {
 		super();
 	}
@@ -75,7 +72,6 @@ export class GoogleProvider_HYBRID extends GoogleProvider {
 export class GoogleProvider_ROAD extends GoogleProvider {
 	type: string = "ROAD";
 	urlTemplate: string = "http://mt{0}.google.cn/vt/lyrs=m&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}"
-
 	constructor() {
 		super();
 	}

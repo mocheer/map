@@ -1,5 +1,6 @@
 import {IMapProvider} from "./providers/IMapProvider"
 import {GoogleProvider_AERIAL,GoogleProvider_HYBRID,GoogleProvider_ROAD} from "./providers/GoogleProvider"
+import {BaiduProvider_AERIAL,BaiduProvider_ROAD} from "./providers/BaiduProvider"
 import {GaoDeProvider_AERIAL,GaoDeProvider_ROAD,GaoDeProvider_LABEL} from "./providers/GaoDeProvider"
 import {TianDiProvider_AERIAL,TianDiProvider_ROAD} from "./providers/TianDiProvider"
 import {MapTile} from "./MapTile"
@@ -8,6 +9,9 @@ const ALLProviders ={
    "GoogleProvider_AERIAL":GoogleProvider_AERIAL,
    "GoogleProvider_HYBRID":GoogleProvider_HYBRID,
    "GoogleProvider_ROAD":GoogleProvider_ROAD,
+   //天地图
+   "BaiduProvider_AERIAL":BaiduProvider_AERIAL,
+   "BaiduProvider_ROAD":BaiduProvider_ROAD,
    //天地图
    "TianDiProvider_AERIAL":TianDiProvider_AERIAL,
    "TianDiProvider_ROAD":TianDiProvider_ROAD,

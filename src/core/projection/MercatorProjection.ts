@@ -35,9 +35,8 @@ export class MercatorProjection implements IProjection
     unproject(point:any[]):any[]
     {
         if (this.T)point = this.T.untransform(point);
-        point = this.rawUnproject(point);
-        return point;
-    }
+        return this.rawUnproject(point);
+    }   
     /**
      * 返回对空间坐标（经纬度坐标）投影和转换后的最大 zoom 对应的投影坐标（瓦片坐标）.
      * @param	loc	空间坐标（经纬度坐标、以度为单位）
@@ -45,8 +44,7 @@ export class MercatorProjection implements IProjection
      * @see		tileMap.core.Coordinate#zoomTo()
      */
     locationCoordinate(loc:LonLat):Coordinate {
-        var point:any[] = [Math.PI * loc.lon / 180, Math.PI * loc.lat / 180];
-        point = this.project(point);
+        var point:any[] = this.project([Math.PI * loc.lon / 180, Math.PI * loc.lat / 180])
         return new Coordinate(point[1], point[0], this.zoom);
     }
 

@@ -25,8 +25,8 @@
       var index = 0
       //
       function handleClick(event){
-        var providers = ["GoogleProvider_AERIAL","TianDiProvider_AERIAL","GaoDeProvider_AERIAL"]
-        var server = new MapServer(providers[index%3]);
+        var providers = ["GoogleProvider_AERIAL","TianDiProvider_AERIAL","GaoDeProvider_AERIAL","BaiduProvider_ROAD"]
+        var server = new MapServer(providers[index%4  ]);
         index++
         var val = document.getElementById("inputText").value;
         var vals = val.split(",")

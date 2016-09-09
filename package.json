@@ -1,5 +1,5 @@
 {
-  "name": "map-server",
+  "name": "map",
   "version": "0.0.1",
   "devDependencies": {
     "ts-loader": "^0.8.2",

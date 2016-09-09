@@ -48,7 +48,7 @@ export class TianDiProvider extends AbstractMapProvider implements IMapProvider 
  */
 export class TianDiProvider_AERIAL extends TianDiProvider {
 	type: string = "AERIAL";
-	urlTemplate: string = "http://t{0}.tianditu.com/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&TILEMATRIX={3}&TILEROW={2}&TILECOL={1}&FORMAT=tiles";
+	urlTemplate: string = "http://t{0}.tianditu.com/DataServer?T=img_w&x={1}&y={2}&l={3}";
 	constructor() {
 		super();
 	}
@@ -59,7 +59,7 @@ export class TianDiProvider_AERIAL extends TianDiProvider {
  */
 export class TianDiProvider_ROAD extends TianDiProvider {
 	type: string = "ROAD";
-	urlTemplate: string = "http://t{0}.tianditu.com/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&TILEMATRIX={3}&TILEROW={2}&TILECOL={1}&FORMAT=tiles";
+	urlTemplate: string = "http://t{0}.tianditu.com/DataServer?T=vec_w&x={1}&y={2}&l={3}";
 	constructor() {
 		super();
 	}

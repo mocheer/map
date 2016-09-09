@@ -4,8 +4,9 @@
 <head>
   <title>map</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+
 <body style="padding-left:5px">
   <div class="input-group TextInput" style="margin-top:5px">
     <span class="input-group-btn">
@@ -13,40 +14,49 @@
      </span>
     <input type="text" id="inputText" value="119.3,26.08,5" class="form-control" placeholder="lon,lat,zoom" />
   </div>
+
   <div>
-    <span id="message"></span>
+    <span id="msg0"></span>
+    <img id="tile0" />
   </div>
   <div>
-    <img id="tile" style="" />
+    <span id="msg1"></span>
+    <img id="tile1" />
+  </div>
+  <div>
+    <span id="msg2"></span>
+    <img id="tile2" />
+  </div>
+   <div>
+    <span id="msg3"></span>
+    <img id="tile3" />
+  </div>
+   <div>
+    <span id="msg4"></span>
+    <img id="tile4" />
+  </div>
+   <div>
+    <span id="msg5"></span>
+    <img id="tile5" />
+  </div>
+   <div>
+    <span id="msg6"></span>
+    <img id="tile6" />
+  </div>
+   <div>
+    <span id="msg7"></span>
+    <img id="tile7" />
+  </div>
+   <div>
+    <span id="msg8"></span>
+    <img id="tile8" />
+  </div>
+   <div>
+    <span id="msg9"></span>
+    <img id="tile9" />
   </div>
 </body>
 <script src="js/map.js"></script>
-<script>
-      var index = 0
-      //
-      function handleClick(event){
-        var providers = ["GoogleProvider_AERIAL","TianDiProvider_AERIAL","GaoDeProvider_AERIAL","BaiduProvider_ROAD"]
-        var server = new MapServer(providers[index%4  ]);
-        index++
-        var val = document.getElementById("inputText").value;
-        var vals = val.split(",")
-        var tile;
-        if(vals.length>1){
-          var lon = parseFloat(vals[0]);
-          var lat = parseFloat(vals[1]);
-          var zoom = vals.length>2?vals[2]:0;
-          var date = new Date();
-          tile = server.getMapTile(lon,lat,zoom);
-          var useDate = new Date()-date;
-          document.getElementById("message").innerText = tile.toString()+"耗时:"+useDate+"ms";
-          var urls  = tile.getUrls();
-          if(urls){
-            document.getElementById("tile").src = urls[0];
-          }else{
-            document.getElementById("tile").src = null;
-          }
-          
-        }
-      }
-</script>
+<script src="js/test.js"></script>
+
 </html>

@@ -1,7 +1,7 @@
 import {IMapProvider} from "./providers/IMapProvider"
 import {GoogleProvider_AERIAL,GoogleProvider_HYBRID,GoogleProvider_ROAD} from "./providers/GoogleProvider"
 import {BaiduProvider_AERIAL,BaiduProvider_ROAD} from "./providers/BaiduProvider"
-import {GaoDeProvider_AERIAL,GaoDeProvider_ROAD,GaoDeProvider_LABEL} from "./providers/GaoDeProvider"
+import {GaoDeProvider_AERIAL,GaoDeProvider_ROAD} from "./providers/GaoDeProvider"
 import {TianDiProvider_AERIAL,TianDiProvider_ROAD} from "./providers/TianDiProvider"
 import {MapTile} from "./MapTile"
 const ALLProviders ={
@@ -17,8 +17,7 @@ const ALLProviders ={
    "TianDiProvider_ROAD":TianDiProvider_ROAD,
    //高德地图
    "GaoDeProvider_AERIAL":GaoDeProvider_AERIAL,
-   "GaoDeProvider_ROAD":GaoDeProvider_ROAD,
-   "GaoDeProvider_LABEL":GaoDeProvider_LABEL
+   "GaoDeProvider_ROAD":GaoDeProvider_ROAD
 }
 export class MapProvider {
     provider: IMapProvider;

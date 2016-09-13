@@ -9,7 +9,7 @@ export class GoogleProvider extends AbstractMapProvider implements IMapProvider 
 	/**
 	 * 各类数据源URL模板，根据镜像服务器编号、数据源类型、投影坐标等，可生成最终的瓦片URL数组
 	 */
-	urlTemplate: string;
+	urlTemplate: any;
 	/**
 	 * 谷歌地图数据源构造函数
 	 * @param	type		数据源类型，指定道路图、遥感图等
@@ -49,7 +49,7 @@ export class GoogleProvider extends AbstractMapProvider implements IMapProvider 
  */
 export class GoogleProvider_AERIAL extends GoogleProvider {
 	type: string = "AERIAL";
-	urlTemplate: string = "http://mt{0}.google.cn/vt/lyrs=y&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}";
+	urlTemplate: any = "http://mt{0}.google.cn/vt/lyrs=y&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}";
 	constructor() {
 		super();
 	}
@@ -60,7 +60,7 @@ export class GoogleProvider_AERIAL extends GoogleProvider {
  */
 export class GoogleProvider_HYBRID extends GoogleProvider {
 	type: string = "HYBRID";
-	urlTemplate: string = "http://mt{0}.google.cn/vt/lyrs=p&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}";
+	urlTemplate: any = "http://mt{0}.google.cn/vt/lyrs=p&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}";
 	constructor() {
 		super();
 	}
@@ -71,7 +71,7 @@ export class GoogleProvider_HYBRID extends GoogleProvider {
  */
 export class GoogleProvider_ROAD extends GoogleProvider {
 	type: string = "ROAD";
-	urlTemplate: string = "http://mt{0}.google.cn/vt/lyrs=m&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}"
+	urlTemplate: any = "http://mt{0}.google.cn/vt/lyrs=m&hl=zh-CN&gl=cn&x={1}&y={2}&z={3}&s={4}"
 	constructor() {
 		super();
 	}

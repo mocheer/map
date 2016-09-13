@@ -9,7 +9,7 @@ export class GaoDeProvider extends AbstractMapProvider implements IMapProvider {
 	/**
 	 * 各类数据源URL模板，根据镜像服务器编号、数据源类型、投影坐标等，可生成最终的瓦片URL数组
 	 */
-	urlTemplate: string;
+	urlTemplate: any;
 	/**
 	 * 高德地图数据源构造函数
 	 * @param	type		数据源类型，指定道路图、遥感图等
@@ -31,6 +31,11 @@ export class GaoDeProvider extends AbstractMapProvider implements IMapProvider {
 		var sourceCoord: Coordinate = this.sourceCoordinate(coord);
 		var server: number = coord.row%4 +1;//随机镜像服务器编号
 		var url: any = this.urlTemplate;
+		if(typeof url === "object"){
+			return url.map(value => {
+				return value.format(server, sourceCoord.column, sourceCoord.row, sourceCoord.zoom)
+			})
+		}
 		var result = url.format(server, sourceCoord.column, sourceCoord.row, sourceCoord.zoom)
 		return [result];
 	}
@@ -48,29 +53,18 @@ export class GaoDeProvider extends AbstractMapProvider implements IMapProvider {
  */
 export class GaoDeProvider_ROAD extends GaoDeProvider {
 	type: string = "ROAD";
-	urlTemplate: string = "http://webrd0{0}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={1}&y={2}&z={3}";
+	urlTemplate: any = "http://webrd0{0}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={1}&y={2}&z={3}";
 	constructor() {
 		super();
 	}
 }
 
 /**
- * 高德卫星图
+ * 高德卫星图(st:SATELLITE)
  */
 export class GaoDeProvider_AERIAL extends GaoDeProvider {
 	type: string = "AERIAL";
-	urlTemplate: string = "http://webst0{0}.is.autonavi.com/appmaptile?scale=1&style=6&x={1}&y={2}&z={3}";
-	constructor() {
-		super();
-	}
-}
-
-/**
- * 高德标注图
- */
-export class GaoDeProvider_LABEL extends GaoDeProvider {
-	type: string = "LABEL";
-	urlTemplate: string = "http://webst0{0}.is.autonavi.com/appmaptile?scale=1&style=8&x={1}&y={2}&z={3}";
+	urlTemplate: any = ["http://webst0{0}.is.autonavi.com/appmaptile?scale=1&style=6&x={1}&y={2}&z={3}","http://webst0{0}.is.autonavi.com/appmaptile?scale=1&style=8&x={1}&y={2}&z={3}"];
 	constructor() {
 		super();
 	}

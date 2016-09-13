@@ -11,7 +11,7 @@ export class BaiduProvider extends AbstractMapProvider implements IMapProvider {
 	/**
 	 * 各类数据源URL模板，根据镜像服务器编号、数据源类型、投影坐标等，可生成最终的瓦片URL数组
 	 */
-	urlTemplate: string;
+	urlTemplate: any;
 	/**
 	 * 百度地图数据源构造函数
 	 * @param	type		数据源类型，指定道路图、遥感图等
@@ -61,7 +61,7 @@ export class BaiduProvider extends AbstractMapProvider implements IMapProvider {
  */
 export class BaiduProvider_AERIAL extends BaiduProvider {
 	type: string = "AERIAL";
-	urlTemplate: string = "http://online{0}.map.bdimg.com/tile/?qt=tile&x={1}&y={2}&z={3}&styles=sl&v=068&udt=20150418";
+	urlTemplate: any = "http://online{0}.map.bdimg.com/tile/?qt=tile&x={1}&y={2}&z={3}&styles=sl&v=068&udt=20150418";
 	constructor() {
 		super();
 	}
@@ -72,7 +72,7 @@ export class BaiduProvider_AERIAL extends BaiduProvider {
  */
 export class BaiduProvider_ROAD extends BaiduProvider {
 	type: string = "ROAD";
-	urlTemplate: string = "http://online{0}.map.bdimg.com/tile/?qt=tile&x={1}&y={2}&z={3}&styles=pl&udt=20150421&scaler=1"
+	urlTemplate: any = "http://online{0}.map.bdimg.com/tile/?qt=tile&x={1}&y={2}&z={3}&styles=pl&udt=20150421&scaler=1"
 	constructor() {
 		super();
 	}

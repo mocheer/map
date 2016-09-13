@@ -9,7 +9,7 @@ export class TianDiProvider extends AbstractMapProvider implements IMapProvider 
 	/**
 	 * 各类数据源URL模板，根据镜像服务器编号、数据源类型、投影坐标等，可生成最终的瓦片URL数组
 	 */
-	urlTemplate: string;
+	urlTemplate: any;
 	/**
 	 * 天地图数据源构造函数
 	 * @param	type		数据源类型，指定道路图、遥感图等
@@ -48,7 +48,7 @@ export class TianDiProvider extends AbstractMapProvider implements IMapProvider 
  */
 export class TianDiProvider_AERIAL extends TianDiProvider {
 	type: string = "AERIAL";
-	urlTemplate: string = "http://t{0}.tianditu.com/DataServer?T=img_w&x={1}&y={2}&l={3}";
+	urlTemplate: any = "http://t{0}.tianditu.com/DataServer?T=img_w&x={1}&y={2}&l={3}";
 	constructor() {
 		super();
 	}
@@ -59,7 +59,7 @@ export class TianDiProvider_AERIAL extends TianDiProvider {
  */
 export class TianDiProvider_ROAD extends TianDiProvider {
 	type: string = "ROAD";
-	urlTemplate: string = "http://t{0}.tianditu.com/DataServer?T=vec_w&x={1}&y={2}&l={3}";
+	urlTemplate: any = "http://t{0}.tianditu.com/DataServer?T=vec_w&x={1}&y={2}&l={3}";
 	constructor() {
 		super();
 	}

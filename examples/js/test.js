@@ -11,8 +11,7 @@ const ALLProviders = [
     "TianDiProvider_ROAD",
     //高德地图
     "GaoDeProvider_AERIAL",
-    "GaoDeProvider_ROAD",
-    "GaoDeProvider_LABEL"
+    "GaoDeProvider_ROAD"
 ]
 function handleClick(event) {
     var val = document.getElementById("inputText").value;
@@ -27,7 +26,15 @@ function handleClick(event) {
             document.getElementById("msg"+index).innerText = tile.toString()
             var urls = tile.getUrls();
             if (urls) {
-                document.getElementById("tile"+index).src = urls[0];
+                urls.forEach(function(item,i){
+                    var n = "tile"+index;
+                    if(i!==0){
+                        n += i
+                        console.log(n)
+                    }
+                    document.getElementById(n).src = item;
+                })
+                
             } else {
                 document.getElementById("tile"+index).src = null;
             }

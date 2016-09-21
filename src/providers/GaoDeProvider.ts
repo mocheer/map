@@ -12,7 +12,6 @@ export class GaoDeProvider extends AbstractMapProvider implements IMapProvider {
 	urlTemplate: any;
 	/**
 	 * 高德地图数据源构造函数
-	 * @param	type		数据源类型，指定道路图、遥感图等
 	 * @param	minZoom		数据源最小缩放级别
 	 * @param	maxZoom		数据源最大缩放级别
 	 */

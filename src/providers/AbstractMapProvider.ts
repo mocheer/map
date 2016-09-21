@@ -18,12 +18,15 @@ export class AbstractMapProvider  {
 	* 抽象构造函数，通常在子类中通过super()调用，不应该被直接实例化。
 	*/
 	constructor(minZoom: number = AbstractMapProvider.MIN_ZOOM, maxZoom: number = AbstractMapProvider.MAX_ZOOM, tx: number = 0.0, ty: number = 0.0) {
-		//转换矩阵参数说明：
-		//投影转换前的经纬度都会被换算成弧度，即经度范围为-pi - pi，纬度范围为 -pi/2 - pi/2
-		//由于总缩放级别为26级，因此共有列数 colCount = 2 ^ 26 = 67108864
-		//由于经度范围为(-pi - pi)，转换后须为 0-colCount，因此cx = colCount / 2 = 33554432。33554431.85来自互联网，可能是加了少量修正。
-		//由于纬度范围为(-pi - pi)，转换后应为 -colCount/2 - colCount/2，因此 ax = (colCount/2) / pi = 10680707.430881743590348355907974
-		//tan 72.3432° 约等于π
+		this.init(minZoom,maxZoom,tx,ty)
+	}
+	//转换矩阵参数说明：
+	//投影转换前的经纬度都会被换算成弧度，即经度范围为-pi - pi，纬度范围为 -pi/2 - pi/2
+	//由于总缩放级别为26级，因此共有列数 colCount = 2^26 = 67108864 （18级≈1:1）
+	//由于经度范围为(-pi - pi)，转换后须为 0-colCount，因此cx = colCount/2 = 33554432。33554431.85来自互联网，可能是加了少量修正。
+	//由于纬度范围为(-pi - pi)，转换后应为 -colCount/2 - colCount/2，因此 ax = (colCount/2) / pi = 10680707.430881743590348355907974
+	//tan 72.3432° 约等于π
+	init(minZoom:number,maxZoom:number,tx:number,ty:number){
 		var t: Transformation = new Transformation(1.068070779e7, 0, 3.355443185e7 + tx, 0, -1.068070890e7, 3.355443057e7 + ty);
 		this.projection = new MercatorProjection(26, t);
 		this.topLeftOutLimit = new Coordinate(0, Number.NEGATIVE_INFINITY, minZoom);

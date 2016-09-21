@@ -1,4 +1,5 @@
 const ALLProviders = [
+    "GaussKrugerProvider_szsatellite",
     //谷歌地图
     "GoogleProvider_AERIAL",
     "GoogleProvider_HYBRID",

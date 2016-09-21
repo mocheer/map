@@ -50,11 +50,11 @@ export class MapTile {
         var point:any[] = [Math.PI * lonlat.lon / 180, Math.PI * lonlat.lat / 180];
         var transformXY = this.provider["projection"]["rawProject"](point)
         var str = "provider:"+this.provider.toString()+"\n" +
-        "lonlat:"+lonlat.toString()+"(经纬度-地理坐标)\n" +
+        "lonlat:"+lonlat.toString()+"(地理坐标)\n" +
         "transformXY:"+transformXY.toString()+"(投影坐标)\n"+
-        "maxCoordinate:"+this.realMaxCoordinate.container().toString()+"(26级瓦片坐标)\n" +
+        "maxCoordinate:"+this.realMaxCoordinate.container().toString()+"(参考缩放级别的瓦片坐标)\n" +
         "coordinate:"+ this.coordinate.toString()+"(瓦片坐标)\n" +
-        "scaleValue:"+ this.scaleValue.toString()+"\n" +
+        "scaleValue:"+ this.scaleValue.toString()+"(缩放因子)\n" +
         "offset:"+this.offset+"(偏移坐标)\n" +
         "urls:"+this.getUrls()+"(瓦片服务地址)\n"
         return str;

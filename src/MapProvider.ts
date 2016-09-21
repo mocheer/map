@@ -3,8 +3,10 @@ import {GoogleProvider_AERIAL,GoogleProvider_HYBRID,GoogleProvider_ROAD} from ".
 import {BaiduProvider_AERIAL,BaiduProvider_ROAD} from "./providers/BaiduProvider"
 import {GaoDeProvider_AERIAL,GaoDeProvider_ROAD} from "./providers/GaoDeProvider"
 import {TianDiProvider_AERIAL,TianDiProvider_ROAD} from "./providers/TianDiProvider"
+import {GaussKrugerProvider_szsatellite} from "./providers/GaussKrugerProvider"
 import {MapTile} from "./MapTile"
 const ALLProviders ={
+    "GaussKrugerProvider_szsatellite":GaussKrugerProvider_szsatellite,
     //谷歌地图
    "GoogleProvider_AERIAL":GoogleProvider_AERIAL,
    "GoogleProvider_HYBRID":GoogleProvider_HYBRID,

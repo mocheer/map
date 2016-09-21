@@ -20,14 +20,16 @@ export class BaiduProvider extends AbstractMapProvider implements IMapProvider {
 	 */
 	constructor() {
 		super();
-        /**
-         * 原始投影坐标到行列坐标的转换矩阵。百度地图的参考缩放级别为18，但最大有19级，因此此处参数为2^18 / 2 = 131072
-         * 由于百度投影坐标原点位于大地原点（经纬度0,0），且坐标轴方向和经纬度坐标相同，因此此处设置转换矩阵Transformation，将坐标原点转换为左上角，适应地图平台的处理方式。
-         */
-        var t:Transformation = new Transformation(1, 0, 131072, 0, -1, 131072);	
+	}
+	/**
+	 * 原始投影坐标到行列坐标的转换矩阵。百度地图的参考缩放级别为18，但最大有19级，因此此处参数为2^18 / 2 = 131072
+	 * 由于百度投影坐标原点位于大地原点（经纬度0,0），且坐标轴方向和经纬度坐标相同，因此此处设置转换矩阵Transformation，将坐标原点转换为左上角，适应地图平台的处理方式。
+	 */
+	init(minZoom:number=1,maxZoom:number=19,tx:number,ty:number){
+		var t:Transformation = new Transformation(1, 0, 131072, 0, -1, 131072);	
         this.projection = new BaiduProjection(18, t);		//百度地图的参考缩放级别为18。尽管可以放大到19级。
-        this.topLeftOutLimit = new Coordinate(0, 0, 1);		//地图左上角边界
-        this.bottomRightInLimit = (new Coordinate(1, 1, 0)).zoomTo(19);	//地图右下角边界
+        this.topLeftOutLimit = new Coordinate(0, 0, minZoom);		//地图左上角边界
+        this.bottomRightInLimit = (new Coordinate(1, 1, 0)).zoomTo(maxZoom);	//地图右下角边界
 	}
 	/**
 	 * 返回特定投影坐标处的瓦片URL数组。

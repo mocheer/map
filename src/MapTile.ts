@@ -51,7 +51,7 @@ export class MapTile {
         var transformXY = this.provider["projection"]["rawProject"](point)
         var str = "provider:"+this.provider.toString()+"\n" +
         "lonlat:"+lonlat.toString()+"(地理坐标)\n" +
-        "transformXY:"+transformXY.toString()+"(投影坐标)\n"+
+        "transformXY:"+transformXY.toString()+"(原始投影坐标)\n"+
         "maxCoordinate:"+this.realMaxCoordinate.container().toString()+"(参考缩放级别的瓦片坐标)\n" +
         "coordinate:"+ this.coordinate.toString()+"(瓦片坐标)\n" +
         "scaleValue:"+ this.scaleValue.toString()+"(缩放因子)\n" +

@@ -5,6 +5,7 @@ import {GaoDeProvider_AERIAL,GaoDeProvider_ROAD} from "./providers/GaoDeProvider
 import {TianDiProvider_AERIAL,TianDiProvider_ROAD} from "./providers/TianDiProvider"
 import {GaussKrugerProvider_szsatellite} from "./providers/GaussKrugerProvider"
 import {MapTile} from "./MapTile"
+import {Coordinate} from './core//Coordinate';
 const ALLProviders ={
     "GaussKrugerProvider_szsatellite":GaussKrugerProvider_szsatellite,
     //谷歌地图

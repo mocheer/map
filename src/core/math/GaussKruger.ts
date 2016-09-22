@@ -1,53 +1,32 @@
 //大地坐标与高斯-克里格投影坐标的转换
-import {wgs84,c80,bj54,cgc2000} from '../GCS'
+import {WGS84,Xian80,Beijing54,CGCS2000} from '../GCS'
 
-/**
- * 大地坐标转换到平面坐标（适用WGS-84坐标系）
- * @param lon 经度
- * @param lat 纬度
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 平面坐标数组，[x,y]
- */
+//大地坐标转高斯-克里格投影坐标
 export function lonLat_xy_wgs84(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return lonLat_xy(lon, lat, wgs84.a, wgs84.f, centerLon, xOffset, yOffset)
+    return lonLat_xy(lon, lat, WGS84.a, WGS84.f, centerLon, xOffset, yOffset)
 }
-/**
- * 大地坐标转换到平面坐标（适用西安80坐标系）
- * @param lon 经度
- * @param lat 纬度
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 平面坐标数组，[x,y]
- */
-export function lonLat_xy_c80(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return lonLat_xy(lon, lat, c80.a, c80.f, centerLon, xOffset, yOffset)
+export function lonLat_xy_xian80(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+    return lonLat_xy(lon, lat, Xian80.a, Xian80.f, centerLon, xOffset, yOffset)
 }
-/**
- * 大地坐标转换到平面坐标（适用北京54坐标系）
- * @param lon 经度
- * @param lat 纬度
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 平面坐标数组，[x,y]
- */
-export function lonLat_xy_bj54(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return lonLat_xy(lon, lat, bj54.a, bj54.f, centerLon, xOffset, yOffset)
+export function lonLat_xy_beijing54(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+    return lonLat_xy(lon, lat, Beijing54.a, Beijing54.f, centerLon, xOffset, yOffset)
 }
-/**
- * 大地坐标转换到平面坐标（适用国家2000大地坐标系）
- * @param lon 经度
- * @param lat 纬度
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 平面坐标数组，[x,y]
- */
-export function lonLat_xy_cgc2000(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return lonLat_xy(lon, lat, cgc2000.a, cgc2000.f, centerLon, xOffset, yOffset)
+export function lonLat_xy_cgcs2000(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+    return lonLat_xy(lon, lat, CGCS2000.a, CGCS2000.f, centerLon, xOffset, yOffset)
+}
+
+//高斯-克里格投影坐标转大地坐标
+export function xy_LonLat_wgs84(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+    return xy_LonLat(x, y, WGS84.a, WGS84.f, centerLon, xOffset, yOffset)
+}
+export function xy_LonLat_xian80(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+    return xy_LonLat(x, y, Xian80.a, Xian80.f, centerLon, xOffset, yOffset)
+}
+export function xy_LonLat_beijing54(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+    return xy_LonLat(x, y, Beijing54.a, Beijing54.f, centerLon, xOffset, yOffset)
+}
+export function xy_LonLat_cgcs2000(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+    return xy_LonLat(x, y, CGCS2000.a, CGCS2000.f, centerLon, xOffset, yOffset)
 }
 /**
  * 大地坐标转换到平面坐标
@@ -81,56 +60,7 @@ export function lonLat_xy(lon: number, lat: number, a: number, f: number, center
 
     return arr
 }
-/**
- * 平面坐标转换到大地坐标（适用WGS-84坐标系）
- * @param x X
- * @param y Y
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 大地坐标数组，[lon,lat]
- */
-export function xy_LonLat_wgs84(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return xy_LonLat(x, y, wgs84.a, wgs84.f, centerLon, xOffset, yOffset)
-}
-/**
- * 平面坐标转换到大地坐标（适用西安80坐标系）
- * @param x X
- * @param y Y
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 大地坐标数组，[lon,lat]
- */
-export function xy_LonLat_c80(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return xy_LonLat(x, y, c80.a, c80.f, centerLon, xOffset, yOffset)
-}
 
-/**
- * 平面坐标转换到大地坐标（适用北京54坐标系）
- * @param x X
- * @param y Y
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 大地坐标数组，[lon,lat]
- */
-export function xy_LonLat_bj54(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return xy_LonLat(x, y, bj54.a, bj54.f, centerLon, xOffset, yOffset)
-}
-
-/**
- * 平面坐标转换到大地坐标（适用国家2000大地坐标系）
- * @param x X
- * @param y Y
- * @param centerLon 中央经线
- * @param xOffset 偏移值，默认值500000m
- * @param yOffset 偏移值，默认值0m
- * @return 大地坐标数组，[lon,lat]
- */
-export function xy_LonLat_cgc2000(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    return xy_LonLat(x, y, cgc2000.a, cgc2000.f, centerLon, xOffset, yOffset)
-}
 /**
  * 平面坐标转换到大地坐标
  * @param x X
@@ -149,7 +79,6 @@ export function xy_LonLat(x: number, y: number, a: number, f: number, centerLon:
     x -= xOffset //为了避免横坐标出现负值，高斯- 克吕格投影与UTM 北半球投影中规定将坐标纵轴西移500 公里当作起始轴，而UTM 南半球投影除了将纵轴西移500 公里外，横轴南移10000 公里。这里只考虑高斯- 克吕格投影
 
     if (x > 1000000) {
-        //alert("坐标类型错误，应使用自然坐标")
         return null
     }
     var ee: number = (2 * f - 1) / f / f       //第一偏心率的平方
@@ -178,7 +107,6 @@ export function xy_LonLat(x: number, y: number, a: number, f: number, centerLon:
     L += centerLon
     return [L.toFixed(5), B.toFixed(5)]
 }
-
 
 /**
  * 由纬度求解子午线弧长

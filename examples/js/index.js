@@ -1,15 +1,15 @@
 const ALLProviders = [
-    "GaussKrugerProvider_szsatellite",
+    "GaussKrugerProvider_SZ",
     //谷歌地图
     "GoogleProvider_AERIAL",
     "GoogleProvider_HYBRID",
     "GoogleProvider_ROAD",
-    //天地图
+    //百度地图
     "BaiduProvider_AERIAL",
     "BaiduProvider_ROAD",
     //天地图
-    "TianDiProvider_AERIAL",
-    "TianDiProvider_ROAD",
+    "TiandituProvider_AERIAL",
+    "TiandituProvider_ROAD",
     //高德地图
     "GaoDeProvider_AERIAL",
     "GaoDeProvider_ROAD"

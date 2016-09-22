@@ -42,10 +42,10 @@ export class GaussKrugerProvider extends AbstractMapProvider implements IMapProv
 }
 
 /**
- * Test
+ * 苏州 高斯克里格
  */
-export class GaussKrugerProvider_szsatellite extends GaussKrugerProvider {
-	type:string = "szsatellite";
+export class GaussKrugerProvider_SZ extends GaussKrugerProvider {
+	type:string = "SZ";
     scales:number[] = [
 		4.5155555555374945E-7,
 		9.031111111074989E-7,
@@ -67,8 +67,8 @@ export class GaussKrugerProvider_szsatellite extends GaussKrugerProvider {
 	}
 	init(minZoom:number,maxZoom:number,tx:number,ty:number){
 		var s:number = 1.74762666666667;// 2^18(行列总瓦片数)/150000（投影坐标宽高） = 1.74762666666667像素/米
-        var t:Transformation = new Transformation(s, 0, 19999.999999999854*s, 0, -s,-20000.00000059977*s+262144);//  起始点投影坐标：19999.999999999854，-20000.00000059977
-        this.projection = new GaussKrugerProjection(maxZoom, t,120.58333299999998,50805,-3421129);	//120.58333299999998 50805,-3421129 东伪偏移,北伪偏移
+        var t:Transformation = new Transformation(s, 0, 19999.999999999854*s, 0, -s,-20000.00000059977*s+262144);//  起始点投影坐标：-19999.999999999854，-20000.00000059977
+        this.projection = new GaussKrugerProjection(maxZoom, t,120.58333299999998,50805,-3421129);	//120.58333299999998 中心子午线 50805,-3421129 东伪偏移,北伪偏移
 		this.topLeftOutLimit = new Coordinate(-1, Number.NEGATIVE_INFINITY, 0);				
         this.bottomRightInLimit = (new Coordinate(1, Number.POSITIVE_INFINITY, 0)).zoomTo(26);
         // this.topLeftOutLimit = new Coordinate(0, 0, minZoom);				

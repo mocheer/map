@@ -4,7 +4,7 @@ import {IMapProvider} from './IMapProvider';
 /**
  * 天地图瓦片数据源提供程序
  */
-export class TianDiProvider extends AbstractMapProvider implements IMapProvider {
+export class TiandituProvider extends AbstractMapProvider implements IMapProvider {
 	type: string;
 	/**
 	 * 各类数据源URL模板，根据镜像服务器编号、数据源类型、投影坐标等，可生成最终的瓦片URL数组
@@ -38,14 +38,14 @@ export class TianDiProvider extends AbstractMapProvider implements IMapProvider 
 	 * @return	天地图数据源字符串描述信息
 	 */
 	toString(): string {
-		return "TianDiProvider_" + this.type;
+		return "TiandituProvider_" + this.type;
 	}
 }
 
 /**
  * 天地图-遥感（影像图）
  */
-export class TianDiProvider_AERIAL extends TianDiProvider {
+export class TiandituProvider_AERIAL extends TiandituProvider {
 	type: string = "AERIAL";
 	urlTemplate: any = "http://t{0}.tianditu.com/DataServer?T=img_w&x={1}&y={2}&l={3}";
 	constructor() {
@@ -56,7 +56,7 @@ export class TianDiProvider_AERIAL extends TianDiProvider {
 /**
  * 天地图-交通（矢量图）
  */
-export class TianDiProvider_ROAD extends TianDiProvider {
+export class TiandituProvider_ROAD extends TiandituProvider {
 	type: string = "ROAD";
 	urlTemplate: any = "http://t{0}.tianditu.com/DataServer?T=vec_w&x={1}&y={2}&l={3}";
 	constructor() {

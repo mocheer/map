@@ -4,18 +4,18 @@ A simple map service
 ### 投影方式:
 |名称|描述|
 |----|----|
-|MercatorProjection   |Web墨卡托投影|
-|LinearProjection     |线性投影（经纬度等间隔投影）|
-|GaussKrugerProjection|高斯-克里格投影（等角横轴切圆柱投影）|
+|MercatorProjection   |Web墨卡托投影 |
+|LinearProjection     |线性投影      |
+|GaussKrugerProjection|高斯-克里格投影|
 
 ### 在线地图:
-|名称|投影 |备注|
-|----|----|----|
-|谷歌地图|Web墨卡托投影|
-|百度地图|Web墨卡托投影|
-|天地图  |Web墨卡托投影、直线投影（未接入测试）|
-|高德地图|Web墨卡托投影|
-|苏州地图|高斯-克里格投影|内网|
+|名称|地理坐标系|投影方式|备注|
+|----|---------|-------|---|
+|谷歌地图|WGS84|Web墨卡托投影|
+|百度地图|WGS84|Web墨卡托投影|
+|天地图  |WGS84|Web墨卡托投影|
+|高德地图|WGS84|Web墨卡托投影|
+|苏州地图|Beijing54|高斯-克里格投影|iserver发布的服务，内网|
 
 ### example:
 ![Alt text](assets/search.png)

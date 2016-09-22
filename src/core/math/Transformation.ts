@@ -1,4 +1,8 @@
 /**
+ * author mocheer
+ */
+
+/**
  * 自定义的用于投影转换的类
  */
 export class Transformation {

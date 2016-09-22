@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 import {IProjection} from '../core/projection/IProjection';
 import {Coordinate} from '../core//Coordinate';
 import {LonLat} from '../core//LonLat';

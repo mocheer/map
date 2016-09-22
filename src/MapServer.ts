@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 import {MapProvider} from "./MapProvider";
 export class MapServer {
     provider:string;

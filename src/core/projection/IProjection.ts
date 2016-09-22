@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 import {LonLat} from '../LonLat';
 import {Coordinate} from '../Coordinate';
 /**

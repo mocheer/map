@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 import {AbstractMapProvider} from './AbstractMapProvider'
 import {Coordinate} from '../core/Coordinate'
 import {IMapProvider} from './IMapProvider'

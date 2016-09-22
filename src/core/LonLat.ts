@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 export class LonLat
 {
     lon:number; /**经度，以度为单位表示。范围通常为-180 ~ 180，超出范围的将被映射到此范围内*/

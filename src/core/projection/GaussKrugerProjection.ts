@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 import {AbstractProjection} from './AbstractProjection';
 import {LonLat} from '../LonLat';
 import {Coordinate} from '../Coordinate';

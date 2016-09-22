@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 import {IMapProvider} from "./providers/IMapProvider"
 import {GoogleProvider_AERIAL,GoogleProvider_HYBRID,GoogleProvider_ROAD} from "./providers/GoogleProvider"
 import {BaiduProvider_AERIAL,BaiduProvider_ROAD} from "./providers/BaiduProvider"

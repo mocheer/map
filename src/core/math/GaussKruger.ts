@@ -1,3 +1,6 @@
+/**
+ * author mocheer
+ */
 //大地坐标与高斯-克里格投影坐标的转换
 import {WGS84,Xian80,Beijing54,CGCS2000} from '../GCS'
 

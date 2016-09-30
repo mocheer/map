@@ -2,8 +2,21 @@
   "name": "map",
   "version": "0.0.1",
   "main":"index.js",
+  "script": {
+    "build": "WEBPACK_ENV=build webpack",
+    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch"
+  },
   "devDependencies": {
     "ts-loader": "^0.8.2",
     "webpack": "^1.13.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mocheer/map.git"
+  },
+  "bugs": {
+    "url": "http://github.com/mocheer/map/issues",
+    "email": "mocheer@foxmail.com"
   }
 }

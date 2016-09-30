@@ -1,11 +1,11 @@
 /**
  * author mocheer
  */
-import {AbstractMapProvider} from './AbstractMapProvider'
-import {Coordinate} from '../core/Coordinate'
-import {IMapProvider} from './IMapProvider'
-import {Transformation} from '../core/math/Transformation'
-import {BaiduProjection} from '../core/projection/BaiduProjection'
+import {AbstractMapProvider} from './AbstractMapProvider.ts'
+import {Coordinate} from '../core/Coordinate.ts'
+import {IMapProvider} from './IMapProvider.ts'
+import {Transformation} from '../core/math/Transformation.ts'
+import {BaiduProjection} from '../core/projection/BaiduProjection.ts'
 /**
  * 百度瓦片地图数据源提供程序
  */

@@ -1,8 +1,8 @@
 /**
  * author mocheer
  */
-import {Coordinate} from '../core//Coordinate';
-import {LonLat} from '../core//LonLat';
+import {Coordinate} from '../core//Coordinate.ts';
+import {LonLat} from '../core//LonLat.ts';
 /**
  * 瓦片数据源公共接口，所有数据源均须实现该接口
  */

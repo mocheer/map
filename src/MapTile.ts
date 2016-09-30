@@ -1,9 +1,9 @@
 /**
  * author mocheer
  */
-import {Coordinate} from './core//Coordinate';
-import {LonLat} from './core//LonLat';
-import {IMapProvider} from "./providers/IMapProvider";
+import {Coordinate} from './core//Coordinate.ts';
+import {LonLat} from './core//LonLat.ts';
+import {IMapProvider} from "./providers/IMapProvider.ts";
 /**
  * 地图瓦片信息
  */

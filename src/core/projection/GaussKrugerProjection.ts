@@ -1,11 +1,11 @@
 /**
  * author mocheer
  */
-import {AbstractProjection} from './AbstractProjection';
-import {LonLat} from '../LonLat';
-import {Coordinate} from '../Coordinate';
-import {Transformation} from '../math/Transformation';
-import {lonLat_xy_wgs84,xy_LonLat_wgs84} from '../math/GaussKruger'
+import {AbstractProjection} from './AbstractProjection.ts';
+import {LonLat} from '../LonLat.ts';
+import {Coordinate} from '../Coordinate.ts';
+import {Transformation} from '../math/Transformation.ts';
+import {lonLat_xy_wgs84,xy_LonLat_wgs84} from '../math/GaussKruger.ts'
 /**
  * 
  */

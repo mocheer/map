@@ -1,11 +1,11 @@
 /**
  * author mocheer
  */
-import {AbstractMapProvider} from './AbstractMapProvider';
-import {Coordinate} from '../core/Coordinate';
-import {IMapProvider} from './IMapProvider';
-import {Transformation} from '../core/math/Transformation'
-import {GaussKrugerProjection} from '../core/projection/GaussKrugerProjection'
+import {AbstractMapProvider} from './AbstractMapProvider.ts';
+import {Coordinate} from '../core/Coordinate.ts';
+import {IMapProvider} from './IMapProvider.ts';
+import {Transformation} from '../core/math/Transformation.ts'
+import {GaussKrugerProjection} from '../core/projection/GaussKrugerProjection.ts'
 /**
  * 高斯克里格投影
  */

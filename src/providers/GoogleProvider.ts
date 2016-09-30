@@ -1,9 +1,9 @@
 ﻿/**
  * author mocheer
  */
-import {AbstractMapProvider} from './AbstractMapProvider';
-import {Coordinate} from '../core/Coordinate';
-import {IMapProvider} from './IMapProvider';
+import {AbstractMapProvider} from './AbstractMapProvider.ts';
+import {Coordinate} from '../core/Coordinate.ts';
+import {IMapProvider} from './IMapProvider.ts';
 /**
  * 谷歌瓦片地图数据源提供程序
  */

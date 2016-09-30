@@ -1,7 +1,7 @@
 /**
  * author mocheer
  */
-import {MapProvider} from "./MapProvider";
+import {MapProvider} from "./MapProvider.ts";
 export class Map {
     provider:string;
     mapProvider: MapProvider;

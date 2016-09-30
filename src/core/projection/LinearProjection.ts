@@ -1,10 +1,10 @@
 /**
  * author mocheer
  */
-import {AbstractProjection} from './AbstractProjection';
-import {LonLat} from '../LonLat';
-import {Coordinate} from '../Coordinate';
-import {Transformation} from '../math/Transformation';
+import {AbstractProjection} from './AbstractProjection.ts';
+import {LonLat} from '../LonLat.ts';
+import {Coordinate} from '../Coordinate.ts';
+import {Transformation} from '../math/Transformation.ts';
 
 /**
  * 线性投影，也即我们常说的无投影，或经纬度投影

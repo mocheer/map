@@ -1,9 +1,9 @@
 /**
  * author mocheer
  */
-import {MercatorProjection} from './MercatorProjection';
-import {LonLat} from '../LonLat';
-import {Coordinate} from '../Coordinate';
+import {MercatorProjection} from './MercatorProjection.ts';
+import {LonLat} from '../LonLat.ts';
+import {Coordinate} from '../Coordinate.ts';
 /**
  * 功能：实现百度地图的经纬度到百度坐标的相互转换。本类提取自百度地图js文件，具体投影方式和实现原理暂未研究。
  * 备注：百度坐标原点位于经纬度原点，坐标轴方向也和经纬度坐标相同，原本以像素为单位，除以256即为瓦片坐标，在此直接调整为以瓦片行列号为坐标。

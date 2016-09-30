@@ -1,10 +1,10 @@
 /**
  * author mocheer
  */
-import {AbstractProjection} from './AbstractProjection';
-import {LonLat} from '../LonLat';
-import {Coordinate} from '../Coordinate';
-import {Transformation} from '../math/Transformation';
+import {AbstractProjection} from './AbstractProjection.ts';
+import {LonLat} from '../LonLat.ts';
+import {Coordinate} from '../Coordinate.ts';
+import {Transformation} from '../math/Transformation.ts';
 /**
  * 墨卡托投影
  */

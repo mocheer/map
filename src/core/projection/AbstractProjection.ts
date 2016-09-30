@@ -1,10 +1,10 @@
 /**
  * author mocheer
  */
-import {IProjection} from './IProjection';
-import {LonLat} from '../LonLat';
-import {Coordinate} from '../Coordinate';
-import {Transformation} from '../math/Transformation';
+import {IProjection} from './IProjection.ts';
+import {LonLat} from '../LonLat.ts';
+import {Coordinate} from '../Coordinate.ts';
+import {Transformation} from '../math/Transformation.ts';
 /**
  * 抽象投影转换类.
  * 投影过程包括两个部分，一是将空间坐标转换为投影坐标；二是在步骤一的基础上对投影坐标进行矩阵转换，得到瓦片行列坐标，这部分是可选的。

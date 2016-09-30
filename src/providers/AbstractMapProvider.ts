@@ -1,11 +1,11 @@
 /**
  * author mocheer
  */
-import {IProjection} from '../core/projection/IProjection';
-import {Coordinate} from '../core//Coordinate';
-import {LonLat} from '../core//LonLat';
-import {Transformation} from '../core/math/Transformation';
-import {MercatorProjection} from '../core/projection/MercatorProjection';
+import {IProjection} from '../core/projection/IProjection.ts';
+import {Coordinate} from '../core//Coordinate.ts';
+import {LonLat} from '../core//LonLat.ts';
+import {Transformation} from '../core/math/Transformation.ts';
+import {MercatorProjection} from '../core/projection/MercatorProjection.ts';
 /**
  * AbstractMapProvider 是所有 MapProvider 的基类，用于对地图提供瓦片数据源。
  */

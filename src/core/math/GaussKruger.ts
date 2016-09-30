@@ -2,7 +2,7 @@
  * author mocheer
  */
 //大地坐标与高斯-克里格投影坐标的转换
-import {WGS84,Xian80,Beijing54,CGCS2000} from '../GCS'
+import {WGS84,Xian80,Beijing54,CGCS2000} from '../GCS.ts'
 
 //大地坐标转高斯-克里格投影坐标
 export function lonLat_xy_wgs84(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{

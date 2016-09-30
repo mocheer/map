@@ -18,4 +18,4 @@ A simple map service
 |苏州地图|Beijing54|高斯-克里格投影|iserver发布的服务，内网|
 
 ### example:
-![Alt text](assets/search.png)
+![](assets/search.png)

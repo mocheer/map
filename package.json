@@ -1,6 +1,7 @@
 {
   "name": "map",
   "version": "0.0.1",
+  "main":"index.js",
   "devDependencies": {
     "ts-loader": "^0.8.2",
     "webpack": "^1.13.1"

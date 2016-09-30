@@ -2,7 +2,7 @@
  * author mocheer
  */
 import {MapProvider} from "./MapProvider";
-export class MapServer {
+export class Map {
     provider:string;
     mapProvider: MapProvider;
    
@@ -20,13 +20,13 @@ export class MapServer {
 (function (global, factory) {
     global.document ? factory(global) : function (w) {
         if (!w.document) {
-            throw new Error("MapServer requires a window with a document");
+            throw new Error("Map requires a window with a document");
         }
         return factory(w);
     };
     } (typeof window !== "undefined" ? window : this, function (window, noGlobal) {
         if (!noGlobal) {
-            window.MapServer = MapServer;
+            window.Map = Map;
             loadUtility();
         }
     })

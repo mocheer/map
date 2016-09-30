@@ -1,7 +1,7 @@
 var webpack = require('webpack');  
 module.exports = {
     entry: {
-        "map": './src/MapServer.ts'
+        "map": './src/Map.ts'
     },
     output: {
         path: __dirname,

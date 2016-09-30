@@ -22,7 +22,7 @@ function handleClick(event) {
         var lat = parseFloat(vals[1]);
         var zoom = vals[2];
         ALLProviders.forEach(function (provider,index) {
-            var server = new MapServer(provider);
+            var server = new Map(provider);
             var tile = server.getMapTile(lon, lat, zoom);
             document.getElementById("msg"+index).innerText = tile.toString()
             var urls = tile.getUrls();

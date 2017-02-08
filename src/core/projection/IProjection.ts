@@ -1,8 +1,8 @@
 /**
  * author mocheer
  */
-import {LonLat} from '../LonLat.ts';
-import {Coordinate} from '../Coordinate.ts';
+import {LonLat} from '../LonLat';
+import {Coordinate} from '../Coordinate';
 /**
  * 地图投影转换公共接口，所有投影均须实现该接口。
  */

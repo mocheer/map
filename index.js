@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('map/src/Map.ts');
+module.exports = require('./src/Map.ts');

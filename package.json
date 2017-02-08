@@ -1,12 +1,14 @@
 {
   "name": "map",
   "version": "0.0.1",
-  "main":"index.js",
-  "script": {
-    "build": "WEBPACK_ENV=build webpack",
-    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch"
+  "main": "index.js",
+  "scripts": {
+    "build": "SET task=build&webpack",
+    "build-watch": "SET task=build&webpack --watch",
+    "dev": "SET task=dev&webpack --progress --colors --watch"
   },
   "devDependencies": {
+    "shell": "git://github.com/mocheer/shell.git",
     "ts-loader": "^0.8.2",
     "webpack": "^1.13.1"
   },

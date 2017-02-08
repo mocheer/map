@@ -1,9 +1,7 @@
 /**
  * author mocheer
+ * 地理坐标系Geographic coordinate system
  */
-
-//地理坐标系Geographic coordinate system
-
 /**
  * WGS-84转换参数
  * WGS-84椭球体：长半轴：a = 6378137  短半轴：b = 6356752.3142 c = 6399593.6258 扁率倒数：f = 298.257223563 第一偏心率：e2 = 0.0066943799013 第二偏心率：e12 = 0.00673949674227

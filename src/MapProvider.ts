@@ -1,14 +1,14 @@
 /**
  * author mocheer
  */
-import {IMapProvider} from "./providers/IMapProvider.ts"
-import {GoogleProvider_AERIAL,GoogleProvider_HYBRID,GoogleProvider_ROAD} from "./providers/GoogleProvider.ts"
-import {BaiduProvider_AERIAL,BaiduProvider_ROAD} from "./providers/BaiduProvider.ts"
-import {GaoDeProvider_AERIAL,GaoDeProvider_ROAD} from "./providers/GaoDeProvider.ts"
-import {TiandituProvider_AERIAL,TiandituProvider_ROAD} from "./providers/TiandituProvider.ts"
-import {GaussKrugerProvider_SZ} from "./providers/GaussKrugerProvider.ts"
-import {MapTile} from "./MapTile.ts"
-import {Coordinate} from './core//Coordinate.ts';
+import {IMapProvider} from "./providers/IMapProvider"
+import {GoogleProvider_AERIAL,GoogleProvider_HYBRID,GoogleProvider_ROAD} from "./providers/GoogleProvider"
+import {BaiduProvider_AERIAL,BaiduProvider_ROAD} from "./providers/BaiduProvider"
+import {GaoDeProvider_AERIAL,GaoDeProvider_ROAD} from "./providers/GaoDeProvider"
+import {TiandituProvider_AERIAL,TiandituProvider_ROAD} from "./providers/TiandituProvider"
+import {GaussKrugerProvider_SZ} from "./providers/GaussKrugerProvider"
+import {MapTile} from "./MapTile"
+import {Coordinate} from './core//Coordinate';
 const ALLProviders ={
     "GaussKrugerProvider_SZ":GaussKrugerProvider_SZ,
     //谷歌地图

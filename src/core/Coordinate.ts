@@ -1,7 +1,5 @@
 /**
  * author mocheer
- */
-/**
  * 瓦片坐标。通过地图切片行号、列号、缩放级别即可唯一确定一个屏幕坐标
  */
 export class Coordinate {

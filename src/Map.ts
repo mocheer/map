@@ -1,7 +1,7 @@
 /**
  * author mocheer
  */
-import {MapProvider} from "./MapProvider.ts";
+import {MapProvider} from "./MapProvider";
 export class Map {
     provider:string;
     mapProvider: MapProvider;
@@ -17,20 +17,8 @@ export class Map {
 }
 
 // set global
-(function (global, factory) {
-    global.document ? factory(global) : function (w) {
-        if (!w.document) {
-            throw new Error("Map requires a window with a document");
-        }
-        return factory(w);
-    };
-    } (typeof window !== "undefined" ? window : this, function (window, noGlobal) {
-        if (!noGlobal) {
-            window.Map = Map;
-            loadUtility();
-        }
-    })
-);
+(<any>window).Map = Map;
+loadUtility();
 
 function loadUtility(){
     if (!String.prototype["format"]) {

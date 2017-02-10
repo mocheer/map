@@ -10,7 +10,7 @@ var path = require("path");
 var request = require('request');
 // images
 var images = require("images");
-images.setLimit(262144, 262144) //2^18 262144 1024000
+images.setLimit(262144, 262144) //2^18 262144
 // map 服务
 require("./examples/js/map.js");
 // 创建一个服务
@@ -72,7 +72,7 @@ function exportService(res, query) {
         content: images(numRows * 256, numCols * 256),
         export: './service/mapImage/' + new Date().getTime() + '.' + format
     }
-    //request google地图禁止访问 256*256
+    //request google地图禁止访问？ 256*256
     var i = 0
     for (var row = minRow; row <= maxRow; row++) {
         for (var col = minCol; col <= maxCol; col++) {
@@ -112,7 +112,7 @@ function drawImage(source, toImages, x, y, reNum = 0) {
             }else{
                 drawImage(source, toImages, x, y, ++reNum)
             }
-        } else if (reNum > 13) { //重复请求次数
+        } else if (reNum > 130) { //重复请求次数
             console.log('超时错误！')
             toImages.count++
         } else {
@@ -127,6 +127,9 @@ function drawImage(source, toImages, x, y, reNum = 0) {
         }
     })
 }
+
+
+
 
 // if (pathname.charAt(pathname.length - 1) == "/") {
     //     pathname += "index.html";

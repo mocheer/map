@@ -25,7 +25,7 @@ const ALLProviders ={
    "GaoDeProvider_AERIAL":GaoDeProvider_AERIAL,
    "GaoDeProvider_ROAD":GaoDeProvider_ROAD
 }
-export class MapProvider {
+export default class MapProvider {
     provider: IMapProvider;
     
     constructor(provider: any) {
@@ -35,7 +35,7 @@ export class MapProvider {
         }
     }
 
-    getMapTile(lon,lat,zoom):MapTile{
+    getTile(lon,lat,zoom):MapTile{
        var tile = new MapTile(this.provider,lon,lat,zoom);
        return tile;
     }

@@ -5,7 +5,7 @@ import {Coordinate} from './core//Coordinate';
 import {LonLat} from './core//LonLat';
 import {IMapProvider} from "./providers/IMapProvider";
 /**
- * 地图瓦片信息
+ * 地图切片信息
  */
 export class MapTile {
     lonlat:LonLat;
@@ -25,9 +25,9 @@ export class MapTile {
         //
         var realMaxCoordinate =  provider.locationCoordinate(this.lonlat);
         var destination = zoom - realMaxCoordinate.zoom;
-        this.coordinate = realMaxCoordinate.zoomBy(destination).container();//缩小到当前级别的瓦片
+        this.coordinate = realMaxCoordinate.zoomBy(destination).container();//缩小到当前级别的切片
         //  
-        var maxCoordinate = this.coordinate.zoomBy(-destination);//放大到最大级别的瓦片
+        var maxCoordinate = this.coordinate.zoomBy(-destination);//放大到最大级别的切片
         var scale = Math.pow(2, destination);//缩放因子
         this.scaleValue = provider.tileWidth*scale;
         this.offset = [(realMaxCoordinate.column-maxCoordinate.column)*this.scaleValue,(realMaxCoordinate.row-maxCoordinate.row)*this.scaleValue]
@@ -55,11 +55,11 @@ export class MapTile {
         var str = "provider:"+this.provider.toString()+"\n" +
         "lonlat:"+lonlat.toString()+"(地理坐标)\n" +
         "transformXY:"+transformXY.toString()+"(投影坐标)\n"+
-        "maxCoordinate:"+this.realMaxCoordinate.container().toString()+"(参考缩放级别的瓦片坐标)\n" +
-        "coordinate:"+ this.coordinate.toString()+"(瓦片坐标)\n" +
+        "maxCoordinate:"+this.realMaxCoordinate.container().toString()+"(参考缩放级别的切片坐标)\n" +
+        "coordinate:"+ this.coordinate.toString()+"(切片坐标)\n" +
         "scaleValue:"+ this.scaleValue.toString()+"(缩放因子)\n" +
         "offset:"+this.offset+"(偏移坐标)\n" +
-        "urls:"+this.getUrls()+"(瓦片服务地址)\n"
+        "urls:"+this.getUrls()+"(切片服务地址)\n"
         return str;
     }
 }

@@ -6,12 +6,12 @@
  * 自定义的用于投影转换的类
  */
 export class Transformation {
-    protected  ax:number;
-    protected  bx:number;
-    protected  cx:number;
-    protected  ay:number;
-    protected  by:number;
-    protected  cy:number;
+    protected ax:number;
+    protected bx:number;
+    protected cx:number;
+    protected ay:number;
+    protected by:number;
+    protected cy:number;
     /**
      * 构造函数，参数和Matrix有所调整。相当于 "new flash.geom.Matrix(ax,bx,ay,by,cx,cy)"
      */

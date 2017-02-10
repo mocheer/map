@@ -26,6 +26,10 @@
         {
             "taskName": "build-watch",
             "args": ["run", "build-watch"]
+        },
+        {
+            "taskName": "service",
+            "args": ["run", "service"]
         }
     ]
 }

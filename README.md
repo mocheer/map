@@ -17,5 +17,8 @@ A simple map service
 |高德地图|WGS84|Web墨卡托投影|
 |苏州地图|Beijing54|高斯-克里格投影|iserver发布的服务，内网|
 
+### TODO
+- 导出高分辨率在线地图 （√，需优化）
+
 ### example:
 ![](assets/search.png)

@@ -41,9 +41,16 @@ module.exports = {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
     },
     module: {
-        loaders: [
+        preLoaders:[
             { test: /\.ts$/, loader: 'ts-loader' }
-        ]
+        ],
+        loaders: [
+            {
+                test: /\.js(x)?$/,
+                exclude: /(node_modules|bower_components)/,//npm,bower
+                loader: 'babel-loader'
+            }
+        ],
     },
     plugins: plugins
 }

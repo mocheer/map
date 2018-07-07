@@ -30,6 +30,10 @@
         {
             "taskName": "service",
             "args": ["run", "service"]
+        },
+        {
+            "taskName": "start",
+            "args": ["run","start"]
         }
     ]
 }

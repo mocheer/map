@@ -1,17 +1,17 @@
 /**
  * author mocheer
  */
-import {AbstractMapProvider} from './AbstractMapProvider';
-import {Coordinate} from '../core/Coordinate';
-import {IMapProvider} from './IMapProvider';
-import {Transformation} from '../core/math/Transformation'
-import {GaussKrugerProjection} from '../core/projection/GaussKrugerProjection'
+import { AbstractMapProvider } from './AbstractMapProvider';
+import { Coordinate } from '../core/Coordinate';
+import { IMapProvider } from './IMapProvider';
+import { Transformation } from '../core/math/Transformation'
+import { GaussKrugerProjection } from '../core/projection/GaussKrugerProjection'
 /**
  * 高斯克里格投影
  */
 export class GaussKrugerProvider extends AbstractMapProvider implements IMapProvider {
 	type: string;
-    scales:number[];
+	scales: number[];
 	urlTemplate: any;
 
 	/**
@@ -20,7 +20,7 @@ export class GaussKrugerProvider extends AbstractMapProvider implements IMapProv
 	 * @param	maxZoom		数据源最大缩放级别
 	 */
 	constructor(minZoom: number = AbstractMapProvider.MIN_ZOOM, maxZoom: number = AbstractMapProvider.MAX_ZOOM, tx: number = 0.0, ty: number = 0.0) {
-		super(minZoom,maxZoom,tx,ty);
+		super(minZoom, maxZoom, tx, ty);
 	}
 	/**
 	 * 返回特定投影坐标处的瓦片URL数组。
@@ -32,7 +32,7 @@ export class GaussKrugerProvider extends AbstractMapProvider implements IMapProv
 		// 	return null;
 		// }
 		var sourceCoord: Coordinate = this.sourceCoordinate(coord);
-		var result = this.urlTemplate.format(sourceCoord.column, sourceCoord.row, this.scales[sourceCoord.zoom-8])
+		var result = this.urlTemplate.format(sourceCoord.column, sourceCoord.row, this.scales[sourceCoord.zoom - 8])
 		return [result];
 	}
 
@@ -45,11 +45,11 @@ export class GaussKrugerProvider extends AbstractMapProvider implements IMapProv
 }
 
 /**
- * 苏州 高斯克里格
+ * 苏州 高斯克吕格
  */
 export class GaussKrugerProvider_SZ extends GaussKrugerProvider {
-	type:string = "SZ";
-    scales:number[] = [
+	type: string = "SZ";
+	scales: number[] = [
 		4.5155555555374945E-7,
 		9.031111111074989E-7,
 		1.806222222214999E-6,
@@ -66,16 +66,16 @@ export class GaussKrugerProvider_SZ extends GaussKrugerProvider {
 	]
 	urlTemplate: any = "http://10.38.13.145:8090/iserver/services/map-arcgis-szsatellite/rest/maps/图层/tileImage.png?transparent=false&cacheEnabled=true&width=256&height=256&x={0}&y={1}&scale={2}&redirect=false&overlapDisplayed=false";
 	constructor() {
-		super(8,26);
+		super(8, 26);
 	}
-	init(minZoom:number,maxZoom:number,tx:number,ty:number){
-		var s:number = 1.74762666666667;// 2^18(行列总瓦片数)/150000（投影坐标宽高） = 1.74762666666667像素/米
-        var t:Transformation = new Transformation(s, 0, 19999.999999999854*s, 0, -s,-20000.00000059977*s+262144);//  起始点投影坐标：-19999.999999999854，-20000.00000059977
-        this.projection = new GaussKrugerProjection(maxZoom, t,120.58333299999998,50805,-3421129);	//120.58333299999998 中心子午线 50805,-3421129 东伪偏移,北伪偏移
-		this.topLeftOutLimit = new Coordinate(-1, Number.NEGATIVE_INFINITY, 0);				
-        this.bottomRightInLimit = (new Coordinate(1, Number.POSITIVE_INFINITY, 0)).zoomTo(26);
-        // this.topLeftOutLimit = new Coordinate(0, 0, minZoom);				
-        // this.bottomRightInLimit = (new Coordinate(1, 1, 0)).zoomTo(maxZoom);
-    }
+	init(minZoom: number, maxZoom: number, tx: number, ty: number) {
+		var s: number = 1.74762666666667;// 2^18(行列总瓦片数)/150000（投影坐标宽高） = 1.74762666666667像素/米
+		var t: Transformation = new Transformation(s, 0, 19999.999999999854 * s, 0, -s, -20000.00000059977 * s + 262144);//  起始点投影坐标：-19999.999999999854，-20000.00000059977
+		this.projection = new GaussKrugerProjection(maxZoom, t, 120.58333299999998, 50805, -3421129);	//120.58333299999998 中心子午线 50805,-3421129 东伪偏移,北伪偏移
+		this.topLeftOutLimit = new Coordinate(-1, Number.NEGATIVE_INFINITY, 0);
+		this.bottomRightInLimit = (new Coordinate(1, Number.POSITIVE_INFINITY, 0)).zoomTo(26);
+		// this.topLeftOutLimit = new Coordinate(0, 0, minZoom);				
+		// this.bottomRightInLimit = (new Coordinate(1, 1, 0)).zoomTo(maxZoom);
+	}
 }
 

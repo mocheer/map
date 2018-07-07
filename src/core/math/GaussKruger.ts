@@ -1,35 +1,35 @@
 /**
  * author mocheer
- * 大地坐标与高斯-克里格投影坐标的转换
+ * 大地坐标与高斯-克吕格投影坐标的转换
  */
 
-import {WGS84,Xian80,Beijing54,CGCS2000} from '../GCS'
+import { WGS84, Xian80, Beijing54, CGCS2000 } from '../GCS'
 
 //大地坐标转高斯-克里格投影坐标
-export function lonLat_xy_wgs84(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function lonLat_xy_wgs84(lon, lat, centerLon, xOffset = 500000, yOffset = 0) {
     return lonLat_xy(lon, lat, WGS84.a, WGS84.f, centerLon, xOffset, yOffset)
 }
-export function lonLat_xy_xian80(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function lonLat_xy_xian80(lon, lat, centerLon, xOffset = 500000, yOffset = 0) {
     return lonLat_xy(lon, lat, Xian80.a, Xian80.f, centerLon, xOffset, yOffset)
 }
-export function lonLat_xy_beijing54(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function lonLat_xy_beijing54(lon, lat, centerLon, xOffset = 500000, yOffset = 0) {
     return lonLat_xy(lon, lat, Beijing54.a, Beijing54.f, centerLon, xOffset, yOffset)
 }
-export function lonLat_xy_cgcs2000(lon: number, lat: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function lonLat_xy_cgcs2000(lon, lat, centerLon, xOffset = 500000, yOffset = 0) {
     return lonLat_xy(lon, lat, CGCS2000.a, CGCS2000.f, centerLon, xOffset, yOffset)
 }
 
 //高斯-克里格投影坐标转大地坐标
-export function xy_LonLat_wgs84(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function xy_LonLat_wgs84(x, y, centerLon, xOffset = 500000, yOffset = 0) {
     return xy_LonLat(x, y, WGS84.a, WGS84.f, centerLon, xOffset, yOffset)
 }
-export function xy_LonLat_xian80(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function xy_LonLat_xian80(x, y, centerLon, xOffset = 500000, yOffset = 0) {
     return xy_LonLat(x, y, Xian80.a, Xian80.f, centerLon, xOffset, yOffset)
 }
-export function xy_LonLat_beijing54(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function xy_LonLat_beijing54(x, y, centerLon, xOffset = 500000, yOffset = 0) {
     return xy_LonLat(x, y, Beijing54.a, Beijing54.f, centerLon, xOffset, yOffset)
 }
-export function xy_LonLat_cgcs2000(x: number, y: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function xy_LonLat_cgcs2000(x, y, centerLon, xOffset = 500000, yOffset = 0) {
     return xy_LonLat(x, y, CGCS2000.a, CGCS2000.f, centerLon, xOffset, yOffset)
 }
 /**
@@ -43,19 +43,19 @@ export function xy_LonLat_cgcs2000(x: number, y: number, centerLon: number, xOff
  * @param yOffset 偏移值，默认值0m
  * @return 平面坐标数组，[x,y]
  */
-export function lonLat_xy(lon: number, lat: number, a: number, f: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
+export function lonLat_xy(lon, lat, a, f, centerLon, xOffset = 500000, yOffset = 0) {
     lon = lon - centerLon
-    var arr: any[] = []
-    var x: number = 0 //平面横轴
-    var y: number = 0 //平面纵轴
-    var ee: number = (2 * f - 1) / f / f       //第一偏心率的平方
-    var ee2: number = ee / (1 - ee)            //第二偏心率的平方
-    var rB: number, tB: number, m: number
+    var arr = []
+    var x = 0 //平面横轴
+    var y = 0 //平面纵轴
+    var ee = (2 * f - 1) / f / f       //第一偏心率的平方
+    var ee2 = ee / (1 - ee)            //第二偏心率的平方
+    var rB, tB, m
     rB = lat * Math.PI / 180
     tB = Math.tan(rB)
     m = Math.cos(rB) * lon * Math.PI / 180
-    var N: number = a / Math.sqrt(1 - ee * Math.sin(rB) * Math.sin(rB))
-    var it2: number = ee2 * Math.pow(Math.cos(rB), 2)
+    var N = a / Math.sqrt(1 - ee * Math.sin(rB) * Math.sin(rB))
+    var it2 = ee2 * Math.pow(Math.cos(rB), 2)
     y = m * m / 2 + (5 - tB * tB + 9 * it2 + 4 * it2 * it2) * Math.pow(m, 4) / 24 + (61 - 58 * tB * tB + Math.pow(tB, 4)) * Math.pow(m, 6) / 720
     y = meridianLength(lat, a, f) + N * tB * y
     x = N * (m + (1 - tB * tB + it2) * Math.pow(m, 3) / 6 + (5 - 18 * tB * tB + Math.pow(tB, 4) + 14 * it2 - 58 * tB * tB * it2) * Math.pow(m, 5) / 120)
@@ -76,33 +76,33 @@ export function lonLat_xy(lon: number, lat: number, a: number, f: number, center
  * @param yOffset 偏移值，默认值0m
  * @return 大地坐标数组，[lon,lat]
  */
-export function xy_LonLat(x: number, y: number, a: number, f: number, centerLon: number, xOffset: number = 500000, yOffset: number = 0): any[]{
-    var L: number = 0
-    var B: number = 0
+export function xy_LonLat(x, y, a, f, centerLon, xOffset = 500000, yOffset = 0) {
+    var L = 0
+    var B = 0
     y -= yOffset
     x -= xOffset //为了避免横坐标出现负值，高斯- 克吕格投影与UTM 北半球投影中规定将坐标纵轴西移500 公里当作起始轴，而UTM 南半球投影除了将纵轴西移500 公里外，横轴南移10000 公里。这里只考虑高斯- 克吕格投影
 
     if (x > 1000000) {
         return null
     }
-    var ee: number = (2 * f - 1) / f / f       //第一偏心率的平方
-    var ee2: number = ee / (1 - ee)            //第二偏心率的平方
-    var cA: number, cB: number, cC: number, cD: number, cE: number
+    var ee = (2 * f - 1) / f / f       //第一偏心率的平方
+    var ee2 = ee / (1 - ee)            //第二偏心率的平方
+    var cA, cB, cC, cD, cE
     cA = 1 + 3 * ee / 4 + 45 * ee * ee / 64 + 175 * Math.pow(ee, 3) / 256 + 11025 * Math.pow(ee, 4) / 16384
     cB = 3 * ee / 4 + 15 * ee * ee / 16 + 525 * Math.pow(ee, 3) / 512 + 2205 * Math.pow(ee, 4) / 2048
     cC = 15 * ee * ee / 64 + 105 * Math.pow(ee, 3) / 256 + 2205 * Math.pow(ee, 4) / 4096
     cD = 35 * Math.pow(ee, 3) / 512 + 315 * Math.pow(ee, 4) / 2048
     cE = 315 * Math.pow(ee, 4) / 131072
-    var Bf: number = y / (a * (1 - ee) * cA)
+    var Bf = y / (a * (1 - ee) * cA)
     do {
         B = Bf
         Bf = (y + a * (1 - ee) * (cB * Math.sin(2 * Bf) / 2 - cC * Math.sin(4 * Bf) / 4 + cD * Math.sin(6 * Bf) / 6) - cE * Math.sin(8 * Bf) / 8) / (a * (1 - ee) * cA)
     }
     while (Math.abs(B - Bf) > 0.00000000001)
-    var N: number = a / Math.sqrt(1 - ee * Math.pow(Math.sin(Bf), 2))
-    var V2: number = 1 + ee2 * Math.pow(Math.cos(Bf), 2)
-    var it2: number = ee2 * Math.pow(Math.cos(Bf), 2)
-    var tB2: number = Math.pow(Math.tan(Bf), 2)
+    var N = a / Math.sqrt(1 - ee * Math.pow(Math.sin(Bf), 2))
+    var V2 = 1 + ee2 * Math.pow(Math.cos(Bf), 2)
+    var it2 = ee2 * Math.pow(Math.cos(Bf), 2)
+    var tB2 = Math.pow(Math.tan(Bf), 2)
     B = Bf - V2 * Math.tan(Bf) / 2 * (Math.pow(x / N, 2) - (5 + 3 * tB2 + it2 - 9 * it2 * tB2) * Math.pow(x / N, 4) / 12 + (61 + 90 * tB2 + 45 * tB2 * tB2) * Math.pow(x / N, 6) / 360)
     L = (x / N - (1 + 2 * tB2 + it2) * Math.pow(x / N, 3) / 6 + (5 + 28 * tB2 + 24 * tB2 * tB2 + 6 * it2 + 8 * it2 * tB2) * Math.pow(x / N, 5) / 120) / Math.cos(Bf)
     B = B * 180 / Math.PI
@@ -119,11 +119,11 @@ export function xy_LonLat(x: number, y: number, a: number, f: number, centerLon:
  * @param f 参考椭球扁率倒数
  * @return 子午线弧长
  */
-export function meridianLength(lat: number, a: number, f: number): number {
-    var ee: number = (2 * f - 1) / f / f //第一偏心率的平方 
-    var rB: number = lat * Math.PI / 180 //将度转化为弧度
+export function meridianLength(lat, a, f) {
+    var ee = (2 * f - 1) / f / f //第一偏心率的平方 
+    var rB = lat * Math.PI / 180 //将度转化为弧度
     //子午线弧长公式的系数
-    var cA: number, cB: number, cC: number, cD: number, cE: number
+    var cA, cB, cC, cD, cE
     cA = 1 + 3 * ee / 4 + 45 * Math.pow(ee, 2) / 64 + 175 * Math.pow(ee, 3) / 256 + 11025 * Math.pow(ee, 4) / 16384
     cB = 3 * ee / 4 + 15 * Math.pow(ee, 2) / 16 + 525 * Math.pow(ee, 3) / 512 + 2205 * Math.pow(ee, 4) / 2048
     cC = 15 * Math.pow(ee, 2) / 64 + 105 * Math.pow(ee, 3) / 256 + 2205 * Math.pow(ee, 4) / 4096

@@ -15,7 +15,7 @@ const ALLProviders ={
    "GoogleProvider_AERIAL":GoogleProvider_AERIAL,
    "GoogleProvider_HYBRID":GoogleProvider_HYBRID,
    "GoogleProvider_ROAD":GoogleProvider_ROAD,
-   //天地图
+   //百度地图
    "BaiduProvider_AERIAL":BaiduProvider_AERIAL,
    "BaiduProvider_ROAD":BaiduProvider_ROAD,
    //天地图
@@ -28,15 +28,14 @@ const ALLProviders ={
 export default class MapProvider {
     provider: IMapProvider;
     
-    constructor(provider: any) {
+    constructor(provider) {
         provider = ALLProviders[provider];
         if(provider){
             this.provider = new provider();
         }
     }
 
-    getTile(lon,lat,zoom):MapTile{
-       var tile = new MapTile(this.provider,lon,lat,zoom);
-       return tile;
+    getTile(lon,lat,zoom){
+       return new MapTile(this.provider,lon,lat,zoom);;
     }
 }

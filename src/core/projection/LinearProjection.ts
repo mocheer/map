@@ -10,6 +10,9 @@ import {Transformation} from '../math/Transformation';
  * 线性投影，也即我们常说的无投影，或经纬度投影
  */
 export class LinearProjection extends AbstractProjection {
+    // 1048576
+    // ( 经纬度等间隔 原点 [-180,90] 即  
+    // 1048576/Math.PI/2 = 166886.05360752725
     /**
      * 构造函数
      * @param	zoom	最大缩放级别

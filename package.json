@@ -17,7 +17,7 @@
     "request": "^2.79.0",
     "shell": "git://github.com/mocheer/shell.git",
     "ts-loader": "^0.8.2",
-    "webpack": "^1.13.1"
+    "webpack": "^5.74.0"
   },
   "license": "MIT",
   "repository": {

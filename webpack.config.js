@@ -1,10 +1,9 @@
 const webpack = require('webpack')
 const fs = require('fs')
-const version = require('./node_modules/shell/nodejs/version.js')
+
 const dir = __dirname //当前模块文件所在目录
 const env = process.env //webpack执行环境
 var plugins = [
-    new webpack.BannerPlugin(version),
     new webpack.NoErrorsPlugin(),
 ]
 

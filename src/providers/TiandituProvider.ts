@@ -1,9 +1,9 @@
 /**
  * author mocheer
  */
-import {AbstractMapProvider} from './AbstractMapProvider';
-import {Coordinate} from '../core/Coordinate';
-import {IMapProvider} from './IMapProvider';
+import { AbstractMapProvider } from './AbstractMapProvider';
+import { Coordinate } from '../core/Coordinate';
+import { IMapProvider } from './IMapProvider';
 /**
  * 天地图瓦片数据源提供程序
  */
@@ -20,11 +20,6 @@ export class TiandituProvider extends AbstractMapProvider implements IMapProvide
 	 */
 	constructor() {
 		super();
-	// 	super(minZoom,maxZoom,tx,ty);
-	// 	//天地图的投影方式为经纬度直投
-	// 	var t:Transformation = new Transformation(166886.05360752725, 0, 524288, 0, -166886.05360752725, 524288);
-	//  __projection = new  LinearProjection(20, t);
-	//  _providerName = providerName;
 	}
 	/**
 	 * 返回特定投影坐标处的瓦片URL数组。
@@ -36,7 +31,7 @@ export class TiandituProvider extends AbstractMapProvider implements IMapProvide
 			return null;
 		}
 		var sourceCoord: Coordinate = this.sourceCoordinate(coord);
-		var server: number = coord.row%7;//随机镜像服务器编号
+		var server: number = coord.row % 7;//随机镜像服务器编号
 		var url: any = this.urlTemplate;
 		var result = url.format(server, sourceCoord.column, sourceCoord.row, sourceCoord.zoom)
 		return [result];

@@ -1,4 +1,7 @@
 const ALLProviders = [
+     //天地图
+     "TiandituProvider4326_AERIAL",
+     "TiandituProvider4326_ROAD",
     "GaussKrugerProvider_SZ",
     //谷歌地图
     "GoogleProvider_AERIAL",

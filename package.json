@@ -27,5 +27,8 @@
   "bugs": {
     "url": "http://github.com/mocheer/map/issues",
     "email": "mocheer@foxmail.com"
+  },
+  "dependencies": {
+    "typescript": "^3.9.10"
   }
 }

@@ -1,12 +1,12 @@
 const ALLProviders = [
-     //天地图
-     "TiandituProvider4326_AERIAL",
-     "TiandituProvider4326_ROAD",
-    "GaussKrugerProvider_SZ",
+    //天地图
+    "TiandituProvider4326_AERIAL",
+    "TiandituProvider4326_ROAD",
     //谷歌地图
     "GoogleProvider_AERIAL",
     "GoogleProvider_HYBRID",
     "GoogleProvider_ROAD",
+    "GaussKrugerProvider_SZ",
     //百度地图
     "BaiduProvider_AERIAL",
     "BaiduProvider_ROAD",
@@ -27,7 +27,11 @@ function handleClick(event) {
         ALLProviders.forEach(function (provider,index) {
             var server = new TMap(provider);
             var tile = server.getTile(lon, lat, zoom);
-            document.getElementById("msg"+index).innerText = tile.toString()
+            var a = document.getElementById("msg"+index)
+            if(a){
+                a.innerText = tile.toString()
+            }
+        
             var urls = tile.getUrls();
             if (urls) {
                 urls.forEach(function(item,i){

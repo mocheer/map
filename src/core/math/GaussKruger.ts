@@ -59,8 +59,8 @@ export function lonLat_xy(lon, lat, a, f, centerLon, xOffset = 500000, yOffset =
     y = m * m / 2 + (5 - tB * tB + 9 * it2 + 4 * it2 * it2) * Math.pow(m, 4) / 24 + (61 - 58 * tB * tB + Math.pow(tB, 4)) * Math.pow(m, 6) / 720
     y = meridianLength(lat, a, f) + N * tB * y
     x = N * (m + (1 - tB * tB + it2) * Math.pow(m, 3) / 6 + (5 - 18 * tB * tB + Math.pow(tB, 4) + 14 * it2 - 58 * tB * tB * it2) * Math.pow(m, 5) / 120)
-    arr[0] = (x + xOffset).toFixed(5)
-    arr[1] = (y + yOffset).toFixed(5)
+    arr[0] = +(x + xOffset).toFixed(5)
+    arr[1] = +(y + yOffset).toFixed(5)
 
     return arr
 }
@@ -109,7 +109,7 @@ export function xy_LonLat(x, y, a, f, centerLon, xOffset = 500000, yOffset = 0) 
     L = L * 180 / Math.PI
     //求解经度
     L += centerLon
-    return [L.toFixed(5), B.toFixed(5)]
+    return [+L.toFixed(5), +B.toFixed(5)]
 }
 
 /**
